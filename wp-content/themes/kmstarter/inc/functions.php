@@ -117,6 +117,12 @@ add_action( 'widgets_init', 'km_starter_widgets_init' );
  * Enqueue scripts and styles.
  */
 function km_starter_scripts() {
+	// Enqueue Google Fonts: source sans pr pt serif 
+	wp_enqueue_style( 'km_starter-fonts', '	https://fonts.googleapis.com/css?family=PT+Serif:
+		400,400i,700,700i|Source+Sans+Pro:400,400i,600,900' );
+
+
+
 	wp_enqueue_style( 'km_starter-style', get_stylesheet_uri() );
 
 	wp_enqueue_script( 'km_starter-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
