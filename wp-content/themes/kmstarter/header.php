@@ -25,6 +25,7 @@
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'km_starter' ); ?></a>
 <!-- HEADER -->
 	<header id="masthead" class="site-header">
+	<!-- .site-branding -->
 		<div class="site-branding">
 			<?php
 			the_custom_logo();
@@ -40,8 +41,8 @@
 				<p class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
 			<?php
 			endif; ?>
-		</div><!-- .site-branding -->
-
+		</div>
+<!-- #site-navigation -->
 		<nav id="site-navigation" class="main-navigation">
 			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'km_starter' ); ?></button>
 			<?php
@@ -50,7 +51,7 @@
 					'menu_id'        => 'primary-menu',
 				) );
 			?>
-		</nav><!-- #site-navigation -->
+		</nav>
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">
