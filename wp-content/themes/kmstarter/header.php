@@ -25,16 +25,20 @@
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'km_starter' ); ?></a>
 <!-- HEADER -->
 
-<figure class="header_image">
-<?php the_header_image_tag(); ?>
+<figure class="header-image">
+<?php 
+if (is_front_page () && the_header_image_tag() ); 
+?>
 </figure>
 
 	<header id="masthead" class="site-header">
 	<!-- .site-branding -->
 		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) : ?>
+<?php the_custom_logo(); ?>
+<div class="site-branding__text"> 
+
+			<?php if ( is_front_page() && is_home() ) : ?>
+
 				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 			<?php else : ?>
 				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
@@ -46,7 +50,11 @@
 				<p class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
 			<?php
 			endif; ?>
-		</div>
+
+</div>    <!-- End site-branding__text -->
+		</div> <!-- End site-branding -->
+
+
 <!-- #site-navigation -->
 		<nav id="site-navigation" class="main-navigation">
 			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'km_starter' ); ?></button>
