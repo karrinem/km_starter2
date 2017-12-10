@@ -4,7 +4,7 @@
  *
  * @link https://jetpack.com/
  *
- * @package kmstarter
+ * @package km_starter
  */
 
 /**
@@ -14,11 +14,11 @@
  * See: https://jetpack.com/support/responsive-videos/
  * See: https://jetpack.com/support/content-options/
  */
-function kmstarter_jetpack_setup() {
+function km_starter_jetpack_setup() {
 	// Add theme support for Infinite Scroll.
 	add_theme_support( 'infinite-scroll', array(
 		'container' => 'main',
-		'render'    => 'kmstarter_infinite_scroll_render',
+		'render'    => 'km_starter_infinite_scroll_render',
 		'footer'    => 'page',
 	) );
 
@@ -28,7 +28,7 @@ function kmstarter_jetpack_setup() {
 	// Add theme support for Content Options.
 	add_theme_support( 'jetpack-content-options', array(
 		'post-details' => array(
-			'stylesheet' => 'kmstarter-style',
+			'stylesheet' => 'km_starter-style',
 			'date'       => '.posted-on',
 			'categories' => '.cat-links',
 			'tags'       => '.tags-links',
@@ -37,12 +37,12 @@ function kmstarter_jetpack_setup() {
 		),
 	) );
 }
-add_action( 'after_setup_theme', 'kmstarter_jetpack_setup' );
+add_action( 'after_setup_theme', 'km_starter_jetpack_setup' );
 
 /**
  * Custom render function for Infinite Scroll.
  */
-function kmstarter_infinite_scroll_render() {
+function km_starter_infinite_scroll_render() {
 	while ( have_posts() ) {
 		the_post();
 		if ( is_search() ) :

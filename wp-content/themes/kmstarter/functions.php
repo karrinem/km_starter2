@@ -1,13 +1,13 @@
 <?php
 /**
- * kmstarter functions and definitions
+ * km_starter functions and definitions
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
- * @package kmstarter
+ * @package km_starter
  */
 
-if ( ! function_exists( 'kmstarter_setup' ) ) :
+if ( ! function_exists( 'km_starter_setup' ) ) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
 	 *
@@ -15,14 +15,14 @@ if ( ! function_exists( 'kmstarter_setup' ) ) :
 	 * runs before the init hook. The init hook is too late for some features, such
 	 * as indicating support for post thumbnails.
 	 */
-	function kmstarter_setup() {
+	function km_starter_setup() {
 		/*
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
-		 * If you're building a theme based on kmstarter, use a find and replace
-		 * to change 'kmstarter' to the name of your theme in all the template files.
+		 * If you're building a theme based on km_starter, use a find and replace
+		 * to change 'km_starter' to the name of your theme in all the template files.
 		 */
-		load_theme_textdomain( 'kmstarter', get_template_directory() . '/languages' );
+		load_theme_textdomain( 'km_starter', get_template_directory() . '/languages' );
 
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
@@ -44,7 +44,7 @@ if ( ! function_exists( 'kmstarter_setup' ) ) :
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
-			'menu-1' => esc_html__( 'Primary', 'kmstarter' ),
+			'menu-1' => esc_html__( 'Primary', 'km_starter' ),
 		) );
 
 		/*
@@ -60,7 +60,7 @@ if ( ! function_exists( 'kmstarter_setup' ) ) :
 		) );
 
 		// Set up the WordPress core custom background feature.
-		add_theme_support( 'custom-background', apply_filters( 'kmstarter_custom_background_args', array(
+		add_theme_support( 'custom-background', apply_filters( 'km_starter_custom_background_args', array(
 			'default-color' => 'ffffff',
 			'default-image' => '',
 		) ) );
@@ -81,7 +81,7 @@ if ( ! function_exists( 'kmstarter_setup' ) ) :
 		) );
 	}
 endif;
-add_action( 'after_setup_theme', 'kmstarter_setup' );
+add_action( 'after_setup_theme', 'km_starter_setup' );
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -90,44 +90,69 @@ add_action( 'after_setup_theme', 'kmstarter_setup' );
  *
  * @global int $content_width
  */
-function kmstarter_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'kmstarter_content_width', 640 );
+function km_starter_content_width() {
+	$GLOBALS['content_width'] = apply_filters( 'km_starter_content_width', 640 );
 }
-add_action( 'after_setup_theme', 'kmstarter_content_width', 0 );
+add_action( 'after_setup_theme', 'km_starter_content_width', 0 );
 
 /**
  * Register widget area.
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
-function kmstarter_widgets_init() {
+function km_starter_widgets_init() {
 	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'kmstarter' ),
+		'name'          => esc_html__( 'Sidebar', 'km_starter' ),
 		'id'            => 'sidebar-1',
-		'description'   => esc_html__( 'Add widgets here.', 'kmstarter' ),
+		'description'   => esc_html__( 'Add widgets here.', 'km_starter' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
 }
-add_action( 'widgets_init', 'kmstarter_widgets_init' );
+add_action( 'widgets_init', 'km_starter_widgets_init' );
+
+/**
+ * Add preconnect for Google Fonts.
+ * @since 
+ * @param array  $urls           URLs to print for resource hints.
+ * @param string $relation_type  The relation type the URLs are printed.
+ * @return array $urls           URLs to print for resource hints.
+ */
+ function kmstarter_resource_hints( $urls, $relation_type ) {
+	if ( wp_style_is( 'kmstarter-fonts', 'queue' ) && 'preconnect' === $relation_type ) {
+		$urls[] = array(
+			'href' => 'https://fonts.gstatic.com',
+			'crossorigin',
+		);
+	}
+
+	return $urls;
+}
+add_filter( 'wp_resource_hints', 'kmstarter_resource_hints', 10, 2 );
 
 /**
  * Enqueue scripts and styles.
  */
-function kmstarter_scripts() {
-	wp_enqueue_style( 'kmstarter-style', get_stylesheet_uri() );
+function km_starter_scripts() {
+	// Enqueue Google Fonts: source sans pr pt serif 
+	wp_enqueue_style( 'km_starter-fonts', '	https://fonts.googleapis.com/css?family=PT+Serif:
+		400,400i,700,700i|Source+Sans+Pro:400,400i,600,900' );
 
-	wp_enqueue_script( 'kmstarter-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
-	wp_enqueue_script( 'kmstarter-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+
+	wp_enqueue_style( 'km_starter-style', get_stylesheet_uri() );
+
+	wp_enqueue_script( 'km_starter-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+
+	wp_enqueue_script( 'km_starter-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
-add_action( 'wp_enqueue_scripts', 'kmstarter_scripts' );
+add_action( 'wp_enqueue_scripts', 'km_starter_scripts' );
 
 /**
  * Implement the Custom Header feature.
