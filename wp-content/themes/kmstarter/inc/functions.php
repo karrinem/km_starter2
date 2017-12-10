@@ -114,6 +114,25 @@ function km_starter_widgets_init() {
 add_action( 'widgets_init', 'km_starter_widgets_init' );
 
 /**
+ * Add preconnect for Google Fonts.
+ * @since 
+ * @param array  $urls           URLs to print for resource hints.
+ * @param string $relation_type  The relation type the URLs are printed.
+ * @return array $urls           URLs to print for resource hints.
+ */
+ function kmstarter_resource_hints( $urls, $relation_type ) {
+	if ( wp_style_is( 'kmstarter-fonts', 'queue' ) && 'preconnect' === $relation_type ) {
+		$urls[] = array(
+			'href' => 'https://fonts.gstatic.com',
+			'crossorigin',
+		);
+	}
+
+	return $urls;
+}
+add_filter( 'wp_resource_hints', 'kmstarter_resource_hints', 10, 2 );
+
+/**
  * Enqueue scripts and styles.
  */
 function km_starter_scripts() {
