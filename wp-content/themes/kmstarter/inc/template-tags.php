@@ -71,7 +71,7 @@ if ( ! function_exists( 'km_starter_posted_on' ) ) :
 				),
 				get_the_title()
 			),
-			' | <span class="edit-link">',
+			'<span class="edit-link">',
 			'</span>'
 		);
 	}

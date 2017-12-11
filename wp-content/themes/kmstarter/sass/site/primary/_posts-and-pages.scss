@@ -46,6 +46,40 @@
 	}
 }
 
+.entry-meta {
+	font-size: 90%;
+	a {
+		font-weight: 700;
+		text-decoration: none;
+		color: black;
+
+		&:focus,
+		&:hover {
+			color: black;
+			border-bottom: 3px solid $color__interactive;
+
+	}
+}
+}
+
+.byline {
+	&::after {
+		content: "|";
+		margin: 0 .5em;
+	}
+}
+
+.comment-link,
+.edit-link {
+	&::before {
+		content: "|";
+		margin: 0 .5em;
+
+	}
+}
+
+
+
 .updated:not(.published) {
 	display: none;
 }
