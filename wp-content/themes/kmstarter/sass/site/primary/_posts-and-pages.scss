@@ -6,6 +6,46 @@
 	margin: 0 0 1.5em;
 }
 
+.entry-header {
+	font-family: $font__sans;
+}
+
+.cat-links {
+	font-size: 90%;
+	font-weight: 700;
+
+	a {
+		text-decoration: none;
+		text-transform: uppercase;
+		color: $color__interactive;
+	
+		&:focus,
+		&:hover {
+			background-color: $color__interactive;
+			color: white;
+		}
+	}
+
+}
+
+.entry-title {
+	margin: .125em 0 .25;
+	font-size: 2.5em;
+
+	@media screen and (min-width: $query__medium){
+		font-size: 3em;
+	}
+
+	a {
+		text-decoration: none;
+		color: black;
+			&:focus,
+				&:hover {
+					border-bottom: 5px solid $color__interactive;
+				}
+	}
+}
+
 .updated:not(.published) {
 	display: none;
 }

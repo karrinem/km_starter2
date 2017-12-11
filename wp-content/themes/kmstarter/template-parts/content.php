@@ -11,6 +11,9 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
+		<!-- Categorey List -->
+		<?php kmstarter_the_categorey_list(); ?>
+
 		<?php
 		if ( is_singular() ) :
 			the_title( '<h1 class="entry-title">', '</h1>' );
@@ -21,6 +24,7 @@
 		if ( 'post' === get_post_type() ) : ?>
 		<div class="entry-meta">
 			<?php km_starter_posted_on(); ?>
+
 		</div><!-- .entry-meta -->
 		<?php
 		endif; ?>
