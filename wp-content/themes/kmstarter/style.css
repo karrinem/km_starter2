@@ -958,6 +958,66 @@ button.dropdown-toggle {
 }
 
 /*--------------------------------------------------------------
+## Footer
+--------------------------------------------------------------*/
+.site-footer {
+	position: relative;
+	padding: 1em;
+	font-family: "Source Sans Pro", "Lucidia Grande", "Lucidia Sans Unicode", sans-serif;
+	color: #fff;
+	background-color: #002254;
+}
+
+@media screen and (min-width: 600px) {
+	.site-footer {
+		padding: 1em 2em;
+	}
+}
+
+.social-menu {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	font-family: "Source Sans Pro", "Lucidia Grande", "Lucidia Sans Unicode", sans-serif;
+	font-weight: 400;
+}
+
+.social-menu ul {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	list-style-type: none;
+	margin: 5px;
+	padding: .5em;
+}
+
+.social-menu ul a {
+	display: inline-block;
+	padding: 1em;
+	text-decoration: none;
+	color: #fff;
+}
+
+.social-menu ul a:hover, .social-menu ul a:focus {
+	text-decoration: underline;
+}
+
+@media screen and (min-width: 900px) {
+	.socialmenu ul {
+		-webkit-box-pack: end;
+		    -ms-flex-pack: end;
+		        justify-content: flex-end;
+		padding-top: 0;
+	}
+}
+
+.site-info {
+	background-color: white;
+	padding: 1em;
+	font-size: 1rem;
+}
+
+/*--------------------------------------------------------------
 # Widgets
 --------------------------------------------------------------*/
 .widget {
