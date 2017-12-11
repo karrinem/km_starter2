@@ -14,6 +14,19 @@
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer">
+		<!-- #social-navigation -->
+<nav id="site-navigation" class="social-navigation">
+			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'km_starter' ); ?></button>
+			<?php
+				wp_nav_menu( array(
+					'theme_location' => 'menu-2',
+					'menu_id'        => 'primary-menu',
+				) );
+			?>
+		</nav>
+
+
+
 		<div class="site-info">
 			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'km_starter' ) ); ?>"><?php
 				/* translators: %s: CMS name, i.e. WordPress. */

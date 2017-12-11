@@ -44,7 +44,8 @@ if ( ! function_exists( 'km_starter_setup' ) ) :
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
-			'menu-1' => esc_html__( 'Primary', 'km_starter' ),
+			'menu-1' => esc_html__( 'Header', 'km_starter' ),
+			'menu-2' => esc_html__('Social', 'km_starter' ),
 		) );
 
 		/*
@@ -139,12 +140,15 @@ function km_starter_scripts() {
 	// Enqueue Google Fonts: source sans pr pt serif 
 	wp_enqueue_style( 'km_starter-fonts', '	https://fonts.googleapis.com/css?family=PT+Serif:
 		400,400i,700,700i|Source+Sans+Pro:400,400i,600,900' );
-
-
-
 	wp_enqueue_style( 'km_starter-style', get_stylesheet_uri() );
 
-	wp_enqueue_script( 'km_starter-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+	wp_enqueue_script( 'km_starter-navigation', get_template_directory_uri() . '/js/navigation.js', 
+	array('jquery'), '20151215', true );
+	wp_localize_script( 'km_starter-navigation' , 'kmstarterScreenReaderText' ,
+	array(
+		'expand' => __('Expand child menu' , 'kmstarter'),
+		'collapse' => __('Collapse child menu' , 'kmstarter'),
+	));
 
 	wp_enqueue_script( 'km_starter-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
@@ -153,6 +157,11 @@ function km_starter_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'km_starter_scripts' );
+
+
+
+
+
 
 /**
  * Implement the Custom Header feature.
