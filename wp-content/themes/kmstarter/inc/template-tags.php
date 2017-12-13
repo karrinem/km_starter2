@@ -111,3 +111,17 @@ function kmstarter_the_categorey_list(){
 					printf( '<span class="cat-links">' . esc_html__( '%1$s', 'km_starter' ) . '</span>', $categories_list ); // WPCS: XSS OK.
 				}
 }
+
+/**
+ * Post navigation (previous / next post) for single posts.
+ */
+function km_starter_post_navigation() {
+	the_post_navigation( array(
+		'next_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Next', 'km_starter' ) . '</span> ' .
+			'<span class="screen-reader-text">' . __( 'Next post:', 'km_starter' ) . '</span> ' .
+			'<span class="post-title">%title</span>',
+		'prev_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Previous', 'km_starter' ) . '</span> ' .
+			'<span class="screen-reader-text">' . __( 'Previous post:', 'km_starter' ) . '</span> ' .
+			'<span class="post-title">%title</span>',
+	) );
+}
