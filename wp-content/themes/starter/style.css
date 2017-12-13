@@ -898,16 +898,6 @@ a:hover, a:active {
 	min-height: 65px;
 }
 
-.custom-logo-link {
-	margin-right: 1em;
-}
-
-.custom-logo-link img {
-	display: block;
-	height: 65px;
-	width: auto;
-}
-
 .site-branding__text {
 	display: -webkit-box;
 	display: -ms-flexbox;
