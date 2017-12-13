@@ -8,6 +8,7 @@
 
 .entry-header {
 	font-family: $font__sans;
+	
 }
 
 .cat-links {
@@ -85,7 +86,9 @@
 }
 
 .page-content,
-.entry-content,
+.entry-content {
+}
+
 .entry-summary {
 	margin: 1.5em 0 0;
 }
