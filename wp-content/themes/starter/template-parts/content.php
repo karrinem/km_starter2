@@ -4,15 +4,14 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package km_starter
+ * @package mwstarter
  */
 
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
-		<!-- Categorey List -->
-		<?php kmstarter_the_categorey_list(); ?>
+	<?php mwstarter_the_category_list(); ?>
 
 		<?php
 		if ( is_singular() ) :
@@ -23,20 +22,18 @@
 
 		if ( 'post' === get_post_type() ) : ?>
 		<div class="entry-meta">
-			<?php km_starter_posted_on(); ?>
-
+			<?php mw_starter_posted_on(); ?>
 		</div><!-- .entry-meta -->
 		<?php
 		endif; ?>
 	</header><!-- .entry-header -->
-	
-	<section class="post-content">
+
 	<div class="entry-content">
 		<?php
 			the_content( sprintf(
 				wp_kses(
 					/* translators: %s: Name of current post. Only visible to screen readers */
-					__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'km_starter' ),
+					__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'mwstarter' ),
 					array(
 						'span' => array(
 							'class' => array(),
@@ -47,16 +44,13 @@
 			) );
 
 			wp_link_pages( array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'km_starter' ),
+				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'mwstarter' ),
 				'after'  => '</div>',
 			) );
 		?>
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<?php km_starter_entry_footer(); ?>
+		<?php mw_starter_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
-
-			</section> <!-- post-content-->
-	<?php get_sidebar(); ?>
 </article><!-- #post-<?php the_ID(); ?> -->
