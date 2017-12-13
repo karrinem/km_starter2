@@ -25,7 +25,7 @@
 		&:focus,
 		&:hover {
 			background-color: $color__interactive;
-			color: white;
+			color: #b25634;
 		}
 	}
 
@@ -98,4 +98,10 @@
 .page-links {
 	clear: both;
 	margin: 0 0 1.5em;
+}
+
+.article {
+	.entry-title h1{
+color: orange;
+	}
 }

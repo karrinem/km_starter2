@@ -8,11 +8,14 @@
 
 .entry-header {
 	font-family: $font__sans;
+	text-decoration: none;
+		color: #626c85;
 }
 
 .cat-links {
 	font-size: 90%;
 	font-weight: 700;
+	color: #b25634;
 	
 	a {
 		text-decoration: none;
@@ -22,28 +25,30 @@
 		&:focus,
 		&:hover {
 			background-color: $color__interactive;
-			color: white;
+			color: #b25634;
 		}
 	}
+}
+
+.entry-title a {
+	h1 { 
+	color: #626c85;
+	}
+}
+
+.entry-title a:focus, .entry-title a:hover {
+	border-bottom: 5px solid #b51c35;
 }
 
 .entry-title {
 	margin: .125em 0 .25em;
 	font-size: 2.5em;
-	
+
 	@media screen and (min-width: $query__medium) {
-		font-size: 3em;
+		font-size: 2em;
 	}
 	
-	a {
-		text-decoration: none;
-		color: black;
-		
-		&:focus,
-		&:hover {
-			border-bottom: 5px solid $color__interactive;
-		}
-	}
+
 }
 
 .entry-meta,
@@ -54,7 +59,7 @@
 	a {
 		font-weight: 700;
 		text-decoration: none;
-		color: black;
+		color: #626c85;
 		
 		&:focus,
 		&:hover {
@@ -63,6 +68,7 @@
 		}
 	}
 }
+
 
 .byline {
 	&::after {
@@ -87,6 +93,7 @@
 .single .byline,
 .group-blog .byline {
 	display: inline;
+	
 }
 
 .extra {
@@ -96,13 +103,22 @@
 /* Custom Post Meta rules for single post / no sidebar. */
 
 .no-sidebar {
+
+	.entry-title a {
+	color: #626c85;
+}
 	
 	.entry-meta {
 		margin-top: 1.5em;
+
 	}
 	
-	@media screen and (min-width: $query__medium) {
+	@media screen and (min-width: 900px) {
 		.post-content__wrap {
+
+			.entry-title a {
+			color: #626c85;
+				}
 			
 			.entry-meta {
 				margin-top: 2.25em;
@@ -157,4 +173,10 @@
 .entry-footer {
 	margin: 1.5em 0;
 	font-family: $font__sans;
+}
+
+.post-content {
+	.entry-title a {
+	color: #626c85;
+}
 }
