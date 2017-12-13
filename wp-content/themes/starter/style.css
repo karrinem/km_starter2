@@ -897,6 +897,7 @@ a:hover, a:active {
 	display: flex;
 	min-height: 65px;
 }
+/* Remove Custom LOGO Styles .custom-logo-link .custom-logo-link  */
 
 .site-branding__text {
 	display: -webkit-box;
