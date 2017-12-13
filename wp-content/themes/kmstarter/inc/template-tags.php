@@ -1,6 +1,6 @@
 <?php
 /**
- * Custom template tags for this theme
+ * NOT THIS ONE LOOK IN MAIN FOLDER THIS ISNT CONNECTED
  *
  * Eventually, some of the functionality here could be replaced by core features.
  *

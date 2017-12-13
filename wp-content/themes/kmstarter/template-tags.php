@@ -100,3 +100,28 @@ if ( ! function_exists( 'kmstarter_entry_footer' ) ) :
 		);
 	}
 endif;
+
+/** Display CATEGOREY List **/
+
+function kmstarter_the_categorey_list(){
+				/* translators: used between list items, there is a space after the comma */
+				$categories_list = get_the_category_list( esc_html__( ', ', 'km_starter' ) );
+				if ( $categories_list ) {
+					/* translators: 1: list of categories. */
+					printf( '<span class="cat-links">' . esc_html__( '%1$s', 'km_starter' ) . '</span>', $categories_list ); // WPCS: XSS OK.
+				}
+}
+
+/**
+ * Post navigation (previous / next post) for single posts.
+ */
+function km_starter_post_navigation() {
+	the_post_navigation( array(
+		'next_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Next', 'km_starter' ) . '</span> ' .
+			'<span class="screen-reader-text">' . __( 'Next post:', 'km_starter' ) . '</span> ' .
+			'<span class="post-title">%title</span>',
+		'prev_text' => '<span class="meta-nav" aria-hidden="true">' . __( 'Previous', 'km_starter' ) . '</span> ' .
+			'<span class="screen-reader-text">' . __( 'Previous post:', 'km_starter' ) . '</span> ' .
+			'<span class="post-title">%title</span>',
+	) );
+}
