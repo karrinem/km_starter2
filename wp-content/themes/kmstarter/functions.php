@@ -150,6 +150,9 @@ function km_starter_scripts() {
 		'collapse' => __('Collapse child menu' , 'kmstarter'),
 	));
 
+	wp_enqueue_script( 'km_starter-functions', get_template_directory_uri() . '/js/functions.js', 
+	array('jquery'), '20171212', true );
+
 	wp_enqueue_script( 'km_starter-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {

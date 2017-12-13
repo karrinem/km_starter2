@@ -994,6 +994,19 @@ button.dropdown-toggle {
 }
 
 /*--------------------------------------------------------------
+## Global Layout
+--------------------------------------------------------------*/
+.site-content {
+	padding: 1em;
+}
+
+@media screen and (min-width: 600px) {
+	.site-content {
+		padding: 2em;
+	}
+}
+
+/*--------------------------------------------------------------
 ## Posts and pages
 --------------------------------------------------------------*/
 .sticky {
@@ -1275,6 +1288,22 @@ object {
 
 .gallery-caption {
 	display: block;
+}
+
+/*--------------------------------------------------------------
+## Images
+--------------------------------------------------------------*/
+.wp-caption.aligncenter,
+.centered-image {
+	max-width: 100vw;
+	margin: 0 -1em;
+}
+
+@media screen and (min-width: 600px) {
+	.wp-caption.aligncenter,
+	.centered-image {
+		margin: 0 -2em;
+	}
 }
 
 /*# sourceMappingURL=../kmstarter/sass/maps/style.css.map */
